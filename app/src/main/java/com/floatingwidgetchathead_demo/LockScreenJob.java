@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LockScreenJob extends Job {
 
+
     private static final String TAG = LockScreenJob.class.getSimpleName();
 
     public static final String TAG_P = "periodic_job_tag";

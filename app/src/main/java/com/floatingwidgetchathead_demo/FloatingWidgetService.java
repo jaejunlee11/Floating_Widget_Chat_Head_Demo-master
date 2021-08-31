@@ -51,11 +51,14 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     private final Handler handler = new Handler();
     int count=0;
 
+    int  a;
+
     //열었다 닫았다
     int x_cord_l;
 
     //on off 측정기
     private void runJobScheduler() {
+        Log.i("Test","runjob");
         Set<JobRequest> jobSets_I = null, jobSets_P = null;
         try {
             jobSets_I = JobManager.instance().getAllJobRequestsForTag(LockScreenJob.TAG_I);

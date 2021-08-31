@@ -31,7 +31,6 @@ import java.util.TimerTask;
 import static java.lang.Thread.sleep;
 
 public class FlowerService extends Service {
-
     private TimerTask second;
     private TextView timer_text;
     private Handler handler = new Handler();
@@ -49,8 +48,11 @@ public class FlowerService extends Service {
     protected void Update() {
         Runnable updater = new Runnable() {
             public void run() {
-                if(timer_sec%20==1&&timer_sec!=1)
-                Toast.makeText(getApplicationContext(),timer_sec/2 + "분 사용" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),timer_sec + "초 사용" , Toast.LENGTH_SHORT).show();
+                if(((AksApplication) getApplicationContext()).getId()==1){
+
+                }
+
             }
         };
         handler.post(updater);
@@ -59,7 +61,7 @@ public class FlowerService extends Service {
         second = new TimerTask() {
             @Override
             public void run() {
-                Log.i("Test", "Timer start");
+                Log.i("Test", "Timer start"+timer_sec);
                 Update();
                 timer_sec++;
 //                if(timer_sec%10==0){
@@ -233,7 +235,7 @@ public class FlowerService extends Service {
         mView4.setVisibility(View.GONE);
         mView5.setVisibility(View.GONE);
 
-        for(int i=1;i<10;i++){
+        for(int i=1;i<1000;i++){
             if(i==2){
                 handle.postDelayed(new Runnable() {
                     @Override
